@@ -1,0 +1,14 @@
+button.feedback {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  width: 170px;
+  height: 47px;
+  border-radius: 12px;
+  background-color: var(--black);
+  color: var(--green);
+  border: 1px solid var(--black);
+  padding: 10px 16px;
+  cursor: pointer;
+}
