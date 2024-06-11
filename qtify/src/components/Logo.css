@@ -1,3 +1,7 @@
 .logo {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
+  position: relative;
+  left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
