@@ -1,14 +1,14 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "../assets/qtify_logo.png";
 import searchIcon from "../assets/Search icon.svg";
 import Button from "./Button";
+import Logo from "./Logo";
 
 const Navbar = () => {
   return (
     <>
       <nav className="nav">
-        <img src={logo} alt="qtify-logo" width={67} height={34} />
+        <Logo />
         <div className="searchbar">
           <input
             type="text"
