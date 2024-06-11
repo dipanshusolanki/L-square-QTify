@@ -1,0 +1,27 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--black);
+  width: 100vw;
+  height: 270px;
+  /* padding: 1rem 0; */
+}
+
+.heroText {
+  margin-top: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  text-align: center;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.heroImage {
+  width: 212px;
+  height: 212px;
+}
