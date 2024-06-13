@@ -1,0 +1,50 @@
+.maingrid {
+  /* border: 1px solid white; */
+  width: 1384px;
+  height: 848px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gridheader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.gridheader > p {
+  color: var(--white);
+}
+
+.gridheader > button {
+  color: var(--green);
+  border: none;
+  background-color: var(---black);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  width: 90px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.gridcontent {
+  /* border: 1px solid green; */
+  width: 1353px;
+  height: 488px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  row-gap: 24px;
+  align-content: flex-start;
+}
