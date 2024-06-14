@@ -3,19 +3,19 @@ import axios from "axios";
 import Card from "./Card";
 import "./Section.css";
 
-const Section = ({ title }) => {
-  const [albums, setAlbums] = useState([]);
+const Section = ({ title, data }) => {
+  // const [albums, setAlbums] = useState([]);
 
-  useEffect(() => {
-    const getAlbums = async () => {
-      const response = await axios.get(
-        "https://qtify-backend-labs.crio.do/albums/top"
-      );
-      //   console.log("Section Response => ", response.data);
-      setAlbums(response.data);
-    };
-    getAlbums();
-  }, []);
+  // useEffect(() => {
+  //   const getAlbums = async () => {
+  //     const response = await axios.get(
+  //       "https://qtify-backend-labs.crio.do/albums/top"
+  //     );
+  //     //   console.log("Section Response => ", response.data);
+  //     setAlbums(response.data);
+  //   };
+  //   getAlbums();
+  // }, []);
 
   return (
     <>
@@ -25,7 +25,7 @@ const Section = ({ title }) => {
           <button>Collapse</button>
         </div>
         <div className="gridcontent">
-          {albums.map((album) => (
+          {data.map((album) => (
             <Card key={album.id} data={album} />
           ))}
         </div>
