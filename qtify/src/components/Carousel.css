@@ -1,0 +1,6 @@
+.mainCarousel {
+  color: var(--white);
+  position: relative;
+  padding-left: 12px;
+  padding-right: 19px;
+}

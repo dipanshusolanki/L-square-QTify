@@ -14,7 +14,7 @@ function App() {
         "https://qtify-backend-labs.crio.do/albums/top"
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setTopAlbums(data);
     };
 
@@ -23,7 +23,7 @@ function App() {
         "https://qtify-backend-labs.crio.do/albums/new"
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setNewAlbums(data);
     };
 

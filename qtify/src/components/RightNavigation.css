@@ -1,0 +1,16 @@
+.rightnavbutton {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  z-index: 2;
+  transform: translateY(-50%);
+  right: 4px;
+}
+
+.hidden {
+  display: none;
+}
