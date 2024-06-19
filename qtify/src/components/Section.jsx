@@ -3,25 +3,38 @@ import axios from "axios";
 import Card from "./Card";
 import "./Section.css";
 import Carousel from "./Carousel";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
-const Section = ({ title, data }) => {
+const Section = ({ title, data, hasExpandButton, hasTabFilter, tabData }) => {
   const [albumsCollapsed, setAlbumsCollapsed] = useState(true);
-
-  // const [albums, setAlbums] = useState([]);
-
-  // useEffect(() => {
-  //   const getAlbums = async () => {
-  //     const response = await axios.get(
-  //       "https://qtify-backend-labs.crio.do/albums/top"
-  //     );
-  //     //   console.log("Section Response => ", response.data);
-  //     setAlbums(response.data);
-  //   };
-  //   getAlbums();
-  // }, []);
+  const [genres, setGenres] = useState([]);
+  const [currentGenre, setCurrentGenre] = useState("");
+  const [filteredSongs, setFilteredSongs] = useState([]);
 
   const toggleGridView = () => {
     setAlbumsCollapsed((albumsCollapsed) => !albumsCollapsed);
+  };
+
+  useEffect(() => {
+    setGenres(tabData);
+    setCurrentGenre("all");
+    setFilteredSongs(data);
+  }, [data, tabData]);
+
+  const handleGenreChange = (event, newGenre) => {
+    console.log(event);
+    console.log(newGenre);
+    if (newGenre === "all") {
+      setFilteredSongs(data);
+    } else {
+      const filteredData = data.filter((song) => song.genre.key === newGenre);
+      console.log(filteredData);
+      setFilteredSongs(filteredData);
+    }
+    setCurrentGenre(newGenre);
   };
 
   return (
@@ -29,20 +42,66 @@ const Section = ({ title, data }) => {
       <section className="maingrid">
         <div className="gridheader">
           <p>{title}</p>
-          {albumsCollapsed === true ? (
+          {hasExpandButton === true ? (
             <>
-              <button onClick={toggleGridView}>Show All</button>
+              {albumsCollapsed === true ? (
+                <>
+                  <button onClick={toggleGridView}>Show All</button>
+                </>
+              ) : (
+                <>
+                  <button onClick={toggleGridView}>Collapse</button>
+                </>
+              )}
             </>
           ) : (
-            <>
-              <button onClick={toggleGridView}>Collapse</button>
-            </>
+            <></>
           )}
-          {/* <button>Collapse</button> */}
         </div>
+        {hasTabFilter === true ? (
+          <>
+            <div className="gridTabFilter">
+              <Box>
+                <Tabs
+                  sx={{
+                    "& .MuiTabs-indicator": {
+                      backgroundColor: "#34c94b",
+                      height: "4px", // Custom indicator color
+                    },
+                    "& .MuiTab-root.Mui-selected": {
+                      color: "#34c94b", // Custom selected tab text color
+                    },
+                  }}
+                  value={currentGenre}
+                  onChange={handleGenreChange}
+                  aria-label="filter tabs"
+                >
+                  <Tab value={"all"} label={"All"} className="tab" />
+                  {genres.map((genre) => (
+                    <Tab
+                      className="tab"
+                      value={genre.key}
+                      label={genre.label}
+                    />
+                  ))}
+                </Tabs>
+              </Box>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
         {albumsCollapsed === true ? (
           <>
-            <Carousel data={data} />
+            {hasTabFilter === true ? (
+              <>
+                <Carousel hasTabFilter={true} data={filteredSongs} />
+              </>
+            ) : (
+              <>
+                <Carousel hasTabFilter={false} data={data} />
+              </>
+            )}
           </>
         ) : (
           <>

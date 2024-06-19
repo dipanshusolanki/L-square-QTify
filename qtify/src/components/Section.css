@@ -39,6 +39,23 @@
   cursor: pointer;
 }
 
+button {
+  color: var(--white) !important;
+}
+
+.gridTabFilter {
+  margin-bottom: 23px;
+}
+
+.tab {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  width: 68px;
+  height: 34px;
+}
+
 .gridcontent {
   /* border: 1px solid green; */
   width: 1353px;

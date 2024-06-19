@@ -3,7 +3,7 @@ import "./Card.css";
 import Chip from "@mui/material/Chip";
 // import Cat from "../assets/4tatbyl5.bmp";
 
-const Card = ({ data }) => {
+const Card = ({ data, hasLikes }) => {
   return (
     <div className="card">
       <div className="cardContent">
@@ -19,7 +19,11 @@ const Card = ({ data }) => {
               paddingY: "4px",
               marginLeft: "8px",
             }}
-            label={`${data.follows} Follows`}
+            label={
+              hasLikes === true
+                ? `${data.likes} Likes`
+                : `${data.follows} Follows`
+            }
           />
         </div>
       </div>

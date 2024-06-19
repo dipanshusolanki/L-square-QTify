@@ -8,7 +8,7 @@ import Card from "./Card";
 import LeftNavigation from "./LeftNavigation";
 import RightNavigation from "./RightNavigation";
 
-const Carousel = ({ data }) => {
+const Carousel = ({ data, hasTabFilter }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -64,11 +64,23 @@ const Carousel = ({ data }) => {
             },
           }}
         >
-          {data.map((album) => (
-            <SwiperSlide key={album.id}>
-              <Card data={album} />
-            </SwiperSlide>
-          ))}
+          {hasTabFilter === true ? (
+            <>
+              {data.map((album) => (
+                <SwiperSlide key={album.id}>
+                  <Card hasLikes={true} data={album} />
+                </SwiperSlide>
+              ))}
+            </>
+          ) : (
+            <>
+              {data.map((album) => (
+                <SwiperSlide key={album.id}>
+                  <Card hasLikes={false} data={album} />
+                </SwiperSlide>
+              ))}
+            </>
+          )}
         </Swiper>
       </div>
     </>
