@@ -76,9 +76,15 @@ const Section = ({ title, data, hasExpandButton, hasTabFilter, tabData }) => {
                   onChange={handleGenreChange}
                   aria-label="filter tabs"
                 >
-                  <Tab value={"all"} label={"All"} className="tab" />
+                  <Tab
+                    sx={{ color: "#ffffff" }}
+                    value={"all"}
+                    label={"All"}
+                    className="tab"
+                  />
                   {genres.map((genre) => (
                     <Tab
+                      sx={{ color: "#ffffff" }}
                       className="tab"
                       value={genre.key}
                       label={genre.label}

@@ -39,9 +39,9 @@
   cursor: pointer;
 }
 
-button {
+/* button {
   color: var(--white) !important;
-}
+} */
 
 .gridTabFilter {
   margin-bottom: 23px;
